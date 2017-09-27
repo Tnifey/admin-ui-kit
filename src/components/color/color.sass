@@ -1,0 +1,22 @@
+=colorClasses($name, $color)
+	.bg-#{$name}
+		background-color: $color
+
+	.text-#{$name}
+		color: $color
+		
+/* And generate */
+
++colorClasses('white', $white)
++colorClasses('black', $black)
+
++colorClasses('primary', $primary)
++colorClasses('secondary', $secondary)
+
++colorClasses('info', $info)
++colorClasses('success', $success)
++colorClasses('warning', $warning)
++colorClasses('danger', $danger)
+
++colorClasses('light', $light)
++colorClasses('dark', $dark)

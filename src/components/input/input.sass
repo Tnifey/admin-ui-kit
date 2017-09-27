@@ -1,0 +1,44 @@
+=inputColors($color: $black)
+	border-color: $color
+	&:focus, &.focus
+		border-color: darken($color, 10)
+
+.input
+	display: inline-block
+	border-style: solid
+	border-width: 2px
+	font: 400 16px/16px 'Roboto', sans-serif
+	box-sizing: border-box
+	text-decoration: none
+	cursor: pointer
+	padding: 1rem
+	border-radius: 2px
+	color: $black
+	background: $white
+	&:disabled, &.disabled
+		background: $dark !important
+		color: darken($dark, 25) !important
+		border-color: $dark !important
+		cursor: default !important
+	+inputColors()
+	
+	&.input-white
+		+inputColors($white)
+	&.input-black
+		+inputColors($black)
+	&.input-light
+		+inputColors($light)
+	&.input-dark
+		+inputColors($dark)
+	&.input-primary
+		+inputColors($primary)
+	&.input-secondary
+		+inputColors($secondary)
+	&.input-info
+		+inputColors($info)
+	&.input-success
+		+inputColors($success)
+	&.input-warning
+		+inputColors($warning)
+	&.input-danger
+		+inputColors($danger)

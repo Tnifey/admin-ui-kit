@@ -1,0 +1,85 @@
+=btn($color, $text)
+	background-color: $color
+	color: $text
+	border-color: $color
+	&:hover, &.hover
+		background-color: darken($color, 6)
+		color: $text
+		border-color: darken($color, 6)
+	&:focus, &.focus
+		background-color: darken($color, 12)
+		color: $text
+		border-color: darken($color, 12)
+	&.btn-outline
+		background-color: transparent
+		color: $color
+		border-color: $color
+		&:hover, &.hover
+			background-color: $color
+			color: $text
+			border-color: $color
+		&:focus, &.focus
+			background-color: darken($color, 6)
+			color: $text
+			border-color: darken($color, 6)
+	&.btn-clear
+		background-color: transparent
+		color: $color
+		border-color: transparent
+		&:hover, &.hover
+			background-color: transparent
+			color: darken($color, 6)
+			border-color: transparent
+		&:focus, &.focus
+			background-color: transparent
+			color: darken($color, 12)
+			border-color: transparent
+
+.btn
+	display: inline-block
+	border-style: solid
+	border-width: 2px
+	text-transform: uppercase
+	font: 500 16px/16px 'Roboto', sans-serif
+	box-sizing: border-box
+	text-decoration: none
+	cursor: pointer
+	padding: 1rem
+	border-radius: 2px
+	&:disabled, &.disabled
+		background: #aaa !important
+		color: #666 !important
+		border-color: #aaa !important
+		cursor: not-allowed
+
+	+btn($black, $white)
+	&.btn-white
+		+btn($white, $black)
+	&.btn-black
+		+btn($black, $white)
+	&.btn-light
+		+btn($light, $dark)
+	&.btn-dark
+		+btn($dark, $light)
+	&.btn-primary
+		+btn($primary, $white)
+	&.btn-secondary
+		+btn($secondary, $white)
+	&.btn-info
+		+btn($info, $white)
+	&.btn-success
+		+btn($success, $white)
+	&.btn-warning
+		+btn($warning, $white)
+	&.btn-danger
+		+btn($danger, $white)
+
+	&.btn-sm
+		padding: 0.5rem
+	&.btn-lg
+		padding: 1.3rem 2rem
+
+	&.btn-block
+		display: block
+		width: 100%
+		text-align: center
