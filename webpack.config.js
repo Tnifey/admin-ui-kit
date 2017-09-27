@@ -4,6 +4,10 @@ const path = require('path');
 const HWP = require('html-webpack-plugin');
 const BSWP = require('browser-sync-webpack-plugin');
 const NIWP = require('npm-install-webpack-plugin');
+const ETWP = require('extract-text-webpack-plugin');
+
+const ETWPcss = new ETWP('styles/[name].css');
+const ETWPsass = new ETWP('styles/[name]-sass.css');
 
 module.exports = {
 	/* entry point */
@@ -49,32 +53,13 @@ module.exports = {
 			/* css loader / style loader */
 			{
 				test: /\.css$/,
-				use: [
-					"style-loader",
-					{
-						loader: "css-loader",
-						options: {
-							minimize: true,
-							sourceMap: true,
-						}
-					},
-				]
+				use: ETWPcss.extract(['css-loader']),
 			},
 
 			/* sass loader | scss loader */
 			{
 				test: /\.(sass|scss)$/,
-				use: [
-					"style-loader",
-					{
-						loader: "css-loader",
-						options: {
-							minimize: true,
-							sourceMap: true,
-						}
-					},
-					"sass-loader"
-				]
+				use: ETWPsass.extract(['css-loader', 'sass-loader']),
 			},
 
 			/* svg inline loader - svg */
@@ -175,6 +160,10 @@ module.exports = {
 			quiet: true,
 			peerDependencies: true,
 		}),
+
+		/* Extract styles */
+		ETWPcss,
+		ETWPsass,
 
 
 	]
