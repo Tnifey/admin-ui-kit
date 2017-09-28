@@ -1,0 +1,28 @@
+=paddings($name: 1, $value: 1rem)
+	.p-#{$name}
+		padding-top: #{$value}
+		padding-left: #{$value}
+		padding-right: #{$value}
+		padding-bottom: #{$value}
+
+	.pt-#{$name}
+		padding-top: #{$value}
+	.pb-#{$name}
+		padding-bottom: #{$value}
+	.pl-#{$name}
+		padding-left: #{$value}
+	.pr-#{$name}
+		padding-right: #{$value}
+
+	.px-#{$name}
+		padding-left: #{$value}
+		padding-right: #{$value}
+	.py-#{$name}
+		padding-top: #{$value}
+		padding-bottom: #{$value}
+
++paddings(0, 0rem)
++paddings(1, 1rem)
++paddings(2, 2rem)
++paddings(3, 3rem)
++paddings(4, 4rem)

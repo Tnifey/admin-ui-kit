@@ -1,0 +1,47 @@
+=menuColor($color: $white, $text: $black)
+	background-color: $color
+	color: $text
+	ul
+		li
+			a
+				&:hover, &.hover
+					background-color: darken($color, 5)
+				&:focus, &.focus
+					background-color: darken($color, 8)
+				&:active, &.active
+					background-color: darken($color, 10)
+
+.menu
+	ul
+		list-style: none
+		margin: 0
+		padding: 0
+		line-height: 1
+		li
+			display: block
+			a
+				display: block
+				text-decoration: none
+				padding: 1rem
+				//
+				&:hover, &.hover
+					//
+				&:focus, &.focus
+					//
+				&.active
+					//
+	+menuColor()
+
+	&.menu-black
+		+menuColor($black, $white)
+
+	&.menu-primary
+		+menuColor($primary, $white)
+
+	&.menu-secondary
+		+menuColor($secondary, $white)
+
+	&.menu-horizontal
+		ul
+			display: flex
+

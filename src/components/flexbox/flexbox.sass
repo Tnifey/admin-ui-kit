@@ -1,0 +1,73 @@
+.row
+	box-sizing: border-box
+	display: flex
+	flex: 0 1 auto
+	flex-direction: row
+	flex-wrap: wrap
+	padding-left: 0
+	padding-right: 0
+	&.padding
+		padding-left: 1rem
+		padding-right: 1rem
+
+.col, .row
+	&.reverse
+		flex-direction: row-reverse
+
+=colWidth($i)
+	flex-basis: (100% / 12) * $i
+	max-width: (100% / 12) * $i
+
+=gen($prefix: null)
+	@if $prefix == "xs"
+		@for $i from 1 through 12
+			.col-#{$i}, .col-#{$prefix}-#{$i}
+				flex: 0 0 auto
+				+colWidth($i)
+			.offset-#{$i}, .offset-#{$prefix}-#{$i}
+				margin-left: (100% / 12) * $i
+	@else
+		@for $i from 1 through 12
+			.col-#{$prefix}-#{$i}
+				flex: 0 0 auto
+				+colWidth($i)
+			.offset-#{$prefix}-#{$i}
+				margin-left: (100% / 12) * $i
+		
+	@if ($prefix != null)
+		.start-#{$prefix}
+			justify-content: flex-start
+		.center-#{$prefix}
+			justify-content: center
+		.end-#{$prefix}
+			justify-content: flex-end
+		.top-#{$prefix}
+			align-items: flex-start
+		.middle-#{$prefix}
+			align-items: center
+		.bottom-#{$prefix}
+			align-items: flex-end
+		.between-#{$prefix}
+			align-items: space-between
+		.around-#{$prefix}
+			align-items: space-around
+		.first-#{$prefix}
+			order: -1
+		.last-#{$prefix}
+			order: 1
+
++gen('xs')
+
+@media only screen and (min-width: 48em)
+	+gen('sm')
+
+@media only screen and (min-width: 64em)
+	+gen('md')
+
+@media only screen and (min-width: 75em)
+	+gen('lg')
+
+.split
+	display: flex
+	width: 100%
+	justify-content: space-between

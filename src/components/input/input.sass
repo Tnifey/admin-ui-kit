@@ -3,7 +3,7 @@
 	&:focus, &.focus
 		border-color: darken($color, 10)
 
-.input
+.input, .select, .textarea
 	display: inline-block
 	border-style: solid
 	border-width: 2px
@@ -11,17 +11,17 @@
 	box-sizing: border-box
 	text-decoration: none
 	cursor: pointer
-	padding: 1rem
+	padding: 0.9rem 1rem
 	border-radius: 2px
 	color: $black
 	background: $white
+	vertical-align: top
 	&:disabled, &.disabled
 		background: $dark !important
 		color: darken($dark, 25) !important
 		border-color: $dark !important
 		cursor: default !important
 	+inputColors()
-	
 	&.input-white
 		+inputColors($white)
 	&.input-black
@@ -42,3 +42,20 @@
 		+inputColors($warning)
 	&.input-danger
 		+inputColors($danger)
+
+.input-group
+	display: flex
+	& > *
+		border-left-width: 0
+		border-radius: 0
+		&:first-child
+			border-left-width: 2px
+			border-radius: 2px 0 0 2px
+		&:last-child
+			border-radius: 0 2px 2px 0
+
+textarea
+	resize: vertical
+
+.select
+	padding: .85rem 1rem
